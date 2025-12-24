@@ -21,3 +21,6 @@ export default {
 }
 </script>
 ```
+
+父组件中子组件的html标签中传入props名=什么值
+
