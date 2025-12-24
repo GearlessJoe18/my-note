@@ -4,9 +4,8 @@
 `</div>`
 
 `new Vue({`
-	`el:{`
+	`el:
 	`#app`
-	`}`
 	`data:{`
 		`msg='xxx'`
 	`}`
