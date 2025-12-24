@@ -24,4 +24,4 @@ export default {
 
 父组件中 子组件html标签中 传入props名=什么值
 
-子组件中声明p'ro
+子组件中声明props配置项
