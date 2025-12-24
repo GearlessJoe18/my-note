@@ -3,11 +3,11 @@
 	`<child  name='msg' ></child>`
 `</div>`
 
-new Vue({
-	el:{
-	#app
-	}
-	data:{
-		msg
-	}
-})
+`new Vue({`
+	`el:{`
+	`#app`
+	`}`
+	`data:{`
+		`msg='xxx'`
+	`}`
+`})`
