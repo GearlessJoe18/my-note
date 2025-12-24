@@ -1,1 +1,1 @@
-￥$emit
+$emit
