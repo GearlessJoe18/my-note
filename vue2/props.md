@@ -4,7 +4,7 @@
 `</div>`
 
 `new Vue({`
-	`el:`#app`
+	`el:#app`
 	`data:{`
 		`msg='xxx'`
 	`}`
