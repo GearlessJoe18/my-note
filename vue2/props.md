@@ -1,4 +1,4 @@
 父组件中
 <div id='app'>
-	<child  name='' ></child>
+	<child  name='msg' ></child>
 </div>
