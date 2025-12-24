@@ -22,5 +22,6 @@ export default {
 </script>
 ```
 
-父组件中子组件的html标签中传入props名=什么值
+父组件中 子组件html标签中 传入props名=什么值
 
+子组件中声明p'ro
