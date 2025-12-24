@@ -1,4 +1,4 @@
-![[Pasted image 20251223225559.png]]![[Pasted image 20251223225542.png]]
+![](assets/picsum/file-20251224133738351.png)![[Pasted image 20251223225542.png]]
 ![[Pasted image 20251223225626.png]]
 
 
