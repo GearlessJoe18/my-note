@@ -7,5 +7,7 @@ new Vue({
 	el:{
 	#app
 	}
-	data:
+	data:{
+		msg
+	}
 })
