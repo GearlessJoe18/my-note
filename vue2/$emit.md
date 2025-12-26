@@ -7,7 +7,7 @@ this.$emit(eventName, ...args)
 
 emit的参数规定了事件触发时给v-on传递什么参数
 
-
+本质是一个事件
 
 
 
