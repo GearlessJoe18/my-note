@@ -1,1 +1,1 @@
-export会到hu
+export会导出一个配置x
