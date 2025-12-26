@@ -1,1 +1,1 @@
-export会导出一个配置项name中名字的对象，import会导入这个对象，名字和export{name}
+export会导出一个配置项name中名字的对象，import会导入这个对象，名字和export{name：xxx}
