@@ -21,3 +21,11 @@ export { PI as CirclePI };
 ```
 
 导入时用 `{ 名称 }` 包裹，名称必须和导出的完全一致：
+```javascript
+import { PI, add, user } from './util.js';
+
+// 使用导入的值
+console.log(PI); // 3.14159
+console.log(add(1, 2)); // 3
+console.log(user.name); // 张三
+```
