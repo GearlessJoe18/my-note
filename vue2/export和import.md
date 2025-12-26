@@ -13,9 +13,11 @@ function add(a, b) {
 const user = { name: '张三', age: 20 };
 
 // 统一导出（必须写定义好的名称）
-export { PI, add, user };
+export { add, user };
 ```
 
-
+```javascript
+export { PI as CirclePI };
+```
 
 导入时
