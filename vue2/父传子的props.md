@@ -23,3 +23,6 @@ export default {
 父组件中 子组件html标签中 传入props名=什么值
 
 子组件中声明props配置项
+
+props会挂载到子组件实例上，用this访问
+this.name
