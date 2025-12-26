@@ -1,1 +1,1 @@
-export会导出一个配置x
+export会导出一个配置项name中名字的对象，impo
