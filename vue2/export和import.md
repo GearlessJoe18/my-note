@@ -6,4 +6,16 @@
 export const PI = 3.14159;
 ```
 
+```javascript
+function add(a, b) {
+  return a + b;
+}
+const user = { name: '张三', age: 20 };
+
+// 统一导出（必须写定义好的名称）
+export { PI, add, user };
+```
+
+
+
 导入时
