@@ -20,4 +20,4 @@ export { add, user };
 export { PI as CirclePI };
 ```
 
-导入时
+导入时用 `{ 名称 }` 包裹，名称必须和导出的完全一致：
