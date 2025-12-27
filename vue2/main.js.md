@@ -12,3 +12,5 @@
 
 `}).$mount('#app')`
 
+  render: h => h(App)
+  
