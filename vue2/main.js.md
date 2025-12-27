@@ -13,4 +13,5 @@
 `}).$mount('#app')`
 
   render: h => h(App)
+  render配置项
   
