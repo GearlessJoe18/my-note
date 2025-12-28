@@ -7,3 +7,5 @@ const routes = [
 		children[]
 	}
 ]
+
+children是一个数组，bao'han
