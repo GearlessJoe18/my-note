@@ -1,0 +1,1 @@
+ `main.js` 里写的 `new Vue({ router })`，就是「注入路由器」
