@@ -9,4 +9,4 @@ id是名字
 
 可以被this.$route.params.id来访问到
 
-你可以运用params:{id:300}来定义
+你可以运用params:{id:300}来定义路径
