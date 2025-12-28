@@ -1,2 +1,2 @@
-<router-link to="{ name: '路由名' }" >f1</router-link>
+`<router-link to="路径" >f1</router-link>`
 
