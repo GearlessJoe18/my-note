@@ -4,5 +4,6 @@ const routes = [
 		name:'f1',
 		component:'页面组件名',
 		props:ture
+		children[]
 	}
 ]
