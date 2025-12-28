@@ -4,8 +4,9 @@ const routes = [
 		name:'f1',
 		component:'页面组件名',
 		props:ture
-		children[]
+		children[
+		]
 	}
 ]
 
-children是一个数组，bao'han
+children是一个数组，包含每个子路由配置对象
