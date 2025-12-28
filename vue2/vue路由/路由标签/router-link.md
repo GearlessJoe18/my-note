@@ -4,4 +4,4 @@
 
 `<router-link to="{name:注册名}" >f1</router-link>`
 
-找到 `name: 'UserPage'` 的路由，读取 `path: '/user/:id'`
+Vue Router找到 `name: 'UserPage'` 的路由，读取 `path: '/user/:id'`
