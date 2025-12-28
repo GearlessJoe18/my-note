@@ -2,4 +2,6 @@
 
 路径为在路由注册的path
 
-`<router-link to="{}" >f1</router-link>`
+`<router-link to="{name:注册名}" >f1</router-link>`
+
+
