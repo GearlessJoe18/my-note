@@ -4,3 +4,4 @@ Vue路由把query动态参数传递注入到path中，并以问号开头&符号�
 
 不需要占位
 
+可以被`this.$route.query.id`来访问到
