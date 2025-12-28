@@ -1,7 +1,8 @@
 `import Vue from 'vue'`
 `import VueRouter from 'vue-router'`
 
-
+`// 引入视口组件`
+`import AboutView from '../views/AboutView.vue'`
 
 
 
