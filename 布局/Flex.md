@@ -5,7 +5,8 @@
 	row | row-reverse | column | column-reverse;
 
 
-- `justify-content`：justify-content属性定义了项目在主轴上的对齐方式。（center/space-between/space-around）
+- `justify-content`：属性定义了项目在主轴上的对齐方式。
+（center/space-between/space-around）
 
 - `align-items`：交叉轴对齐（center/stretch，垂直居中神器）
 
