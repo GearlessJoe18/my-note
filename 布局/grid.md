@@ -2,3 +2,8 @@
 
 - 容器（父元素）：`display: grid`
 - 网格线 / 网格单元格：行列分割出的最小单元
+
+- `grid-template-columns`：列宽（`1fr 2fr`/`repeat(3, 100px)`）
+- `grid-template-rows`：行高（同上）
+- `gap`：行列间距（`gap: 10px` 等价 `row-gap + column-gap`）
+- `place-items`：单元格内对齐（center 一键居中）
