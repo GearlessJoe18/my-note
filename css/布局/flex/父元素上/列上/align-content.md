@@ -4,4 +4,4 @@ align-content属性定义了多根轴线的对齐方式。如果项目只有一�
   `align-content: flex-start | flex-end | center | space-between | space-around | stretch;`
 `}`
 
-![](布局/flex/父元素上/列上/assets/align-content/file-20251229123920454.png)
+![](css/布局/flex/父元素上/列上/assets/align-content/file-20251229123920454.png)
