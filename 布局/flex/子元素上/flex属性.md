@@ -2,7 +2,7 @@ flex属性是flex-grow, flex-shrink 和 flex-basis的简写，默认值为0 1 au
 
 
 `.item {`
-  `flex: none | [ <'flex-grow'> <'flex-shrink'>? || <'flex-basis'> ]`
+  `flex:| [ <'flex-grow'> <'flex-shrink'>? || <'flex-basis'> ]`
 `}`
 
 
