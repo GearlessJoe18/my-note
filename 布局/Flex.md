@@ -15,5 +15,10 @@
   `flex-wrap: nowrap | wrap | wrap-reverse;`
 `}`
 
+
+
+
+
+
 - `flex: 1`：占满剩余空间（均分列 / 行神器）
 - `align-self`：单独调整某项目的交叉轴对齐
