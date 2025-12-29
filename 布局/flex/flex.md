@@ -1,8 +1,7 @@
 - 容器（父元素）：`display: flex`
 - 项目（子元素）：容器内的直接子元素
 
-- `flex-direction`：主轴方向
-	row | row-reverse | column | column-reverse;
+
 
 
 - `justify-content`：属性定义了项目在主轴上的对齐方式。
