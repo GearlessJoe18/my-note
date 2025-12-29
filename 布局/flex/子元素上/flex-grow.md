@@ -1,1 +1,5 @@
 flex-grow属性定义项目的放大比例，默认为0，即如果存在剩余空间，也不放大。
+
+`.item {`
+  `flex-grow: <number>; /* default 0 */`
+`}`
