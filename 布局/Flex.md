@@ -1,11 +1,11 @@
 - 容器（父元素）：`display: flex`
 - 项目（子元素）：容器内的直接子元素
 
-- `flex-direction`：主轴方向（row/column，默认 row）
+- `flex-direction`：主轴方向
 	row | row-reverse | column | column-reverse;
 
 
-- `justify-content`：主轴对齐（center/space-between/space-around）
+- `justify-content`：justify-content属性定义了项目在主轴上的对齐方式。（center/space-between/space-around）
 
 - `align-items`：交叉轴对齐（center/stretch，垂直居中神器）
 
