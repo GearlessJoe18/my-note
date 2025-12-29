@@ -7,3 +7,6 @@
 - `grid-template-rows`：行高（同上）
 - `gap`：行列间距（`gap: 10px` 等价 `row-gap + column-gap`）
 - `place-items`：单元格内对齐（center 一键居中）
+#### 核心属性（项目）
+- `grid-column`：跨列（`1 / 3` 占第 1-2 列）
+- `grid-row`：跨行（同上）
