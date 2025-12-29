@@ -1,1 +1,2 @@
-display: flex
+- 容器（父元素）：`display: flex`
+- - 项目（子元素）：容器内的直接子元素
