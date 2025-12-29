@@ -6,6 +6,8 @@
 
 - `align-items`：属性定义项目在交叉轴上如何对齐
 
+
+
 - `flex-wrap`：是否换行（wrap 解决溢出）
 
 `.box{`
