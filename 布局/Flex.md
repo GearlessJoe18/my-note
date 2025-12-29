@@ -2,6 +2,9 @@
 - 项目（子元素）：容器内的直接子元素
 
 - `flex-direction`：主轴方向（row/column，默认 row）
+	row | row-reverse | column | column-reverse;
+
+
 - `justify-content`：主轴对齐（center/space-between/space-around）
 - `align-items`：交叉轴对齐（center/stretch，垂直居中神器）
 - `flex-wrap`：是否换行（wrap 解决溢出）
