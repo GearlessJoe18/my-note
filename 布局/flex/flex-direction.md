@@ -1,3 +1,3 @@
-属性定义z
+属性定义主轴方向
 
 row | row-reverse | column | column-reverse;
