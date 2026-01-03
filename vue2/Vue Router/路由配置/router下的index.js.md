@@ -11,6 +11,9 @@
     `component: AboutView,`
 `}]`
 
+//
+
+
 `const router = new VueRouter({`
     `mode: 'history',`
     `routes`
