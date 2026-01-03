@@ -8,16 +8,15 @@
 
 `const routes = [{`
     `path: '/',`
-    `component: App,`
+    `component: AboutView,`
 `}]`
 
+`const router = new VueRouter({`
+    `mode: 'history',`
+    `routes`
+`})`
 
-const router = new VueRouter({
-    mode: 'history',
-    routes
-})
-
-export default router
+`export default router`
 
 
 
