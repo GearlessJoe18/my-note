@@ -18,7 +18,7 @@
   `}`
 `]`
 
-//
+//这个箭头函数**并非页面初始化时执行**，而是在「首次匹配到该路由且需要渲染组件时」被 Vue Router 触发调用
 
 `const router = new VueRouter({`
     `mode: 'history',`
