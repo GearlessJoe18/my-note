@@ -12,19 +12,12 @@
 `}]`
 
 const routes = [
-
   {
-
     path: '/f1',
-
     name: 'f1',
-
     props: true,
-
     component: () => import('../views/AboutView.vue')
-
   }
-
 ]
 
 
