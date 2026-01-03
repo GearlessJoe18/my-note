@@ -17,29 +17,18 @@ const routes = [{
         component: r => require.ensure([], () => r(require('../page/home')), 'home')
 
     }, {
-
         path: '/item',
-
         component: r => require.ensure([], () => r(require('../page/item')), 'item')
-
     }, {
-
         path: '/score',
-
         component: r => require.ensure([], () => r(require('../page/score')), 'score')
-
     }]
-
 }]
 
-  
 
 const router = new VueRouter({
-
     mode: 'history',
-
     routes
-
 })
 
 export default router
