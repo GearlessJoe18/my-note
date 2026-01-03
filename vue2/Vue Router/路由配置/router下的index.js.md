@@ -4,12 +4,12 @@
 `// 引入视口组件`
 `import AboutView from '../views/AboutView.vue'`
 
-Vue.use(VueRouter)
+`Vue.use(VueRouter)`
 
-const routes = [{
-    path: '/',
-    component: App,
-}]
+`const routes = [{`
+    `path: '/',`
+    `component: App,`
+`}]`
 
 
 const router = new VueRouter({
