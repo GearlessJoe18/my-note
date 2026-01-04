@@ -8,3 +8,6 @@ Vuex 中 `mutations` 里的函数 **固定接收两个参数**，且参数顺�
 `payload` 是 mutation 函数的**第二个参数**，意为 “载荷 / 负载”
 
 是调用 `commit` 时传递的额外数据，**可选**。
+
+
+定义好 mutation 函数后，核心是通过 `store.commit()` 方法触发它
