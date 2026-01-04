@@ -1,6 +1,7 @@
 ES6 允许在对象字面量中，用 `[表达式]` 作为属性名 / 方法名，表达式的**执行结果**会成为最终的属性名：
 
 const ADD_ITEMNUM = 'ADD_ITEMNUM'
+
 [ ADD_ITEMNUM ] (state, num) {
 		state.itemNum += num;
 	},
