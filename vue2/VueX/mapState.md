@@ -3,8 +3,7 @@
 - 对象的**属性名** = 数组中的 state 属性名（如 `itemNum`）；
 - 对象的**属性值** = 一个函数（该函数返回 `this.$store.state.对应属性名`，即自动帮你写好访问 state 的计算属性函数）。
 
-
-
+这个生成的对象最终合并到 `computed` 中，就实现了 “组件内直接访问 `this.itemNum` 等价于访问 `this.$store.state.itemNum`”。
 
 
 `mapState` **必须放在计算属性（`computed`）中**
