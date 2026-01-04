@@ -1,3 +1,5 @@
+用来触发mutation函数
+
 1. `commit` 接收第一个参数（字符串 / 对象的 `type`）
    这是**mutation 函数的名称**；
 
