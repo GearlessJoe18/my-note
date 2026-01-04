@@ -5,7 +5,8 @@
 
 这个生成的对象最终合并到 `computed` 中，就实现了 “组件内直接访问 `this.itemNum` 等价于访问 `this.$store.state.itemNum`”。
 
-如果有其他自定义计算属性，那么用
+如果有其他自定义计算属性，那么用**对象展开运算符 `...`** 将 `mapState` 返回的对象展开到 `computed` 中
+
 
 `mapState` **必须放在计算属性（`computed`）中**
 
