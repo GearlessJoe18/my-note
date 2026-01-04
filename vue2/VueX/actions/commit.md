@@ -1,5 +1,5 @@
 1. `commit` 接收第一个参数（字符串 / 对象的 `type`）
-   这是**mutation 函数的名称**（而非 “commit 里面传递的函数”）；
+   这是**mutation 函数的名称**；
 
 2. Vuex 找到 store 中定义的、名为 `XXX` 的 mutation 函数并执行它；
 
