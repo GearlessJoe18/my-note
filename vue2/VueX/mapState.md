@@ -7,6 +7,20 @@
 
 如果有其他自定义计算属性，那么用**对象展开运算符 `...`** 将 `mapState` 返回的对象展开到 `computed` 中
 
+```js
+import { mapState } from 'vuex'
+
+export default {
+  computed: {
+    // 1. 自定义计算属性（组件自身的）
+    currentTopic() {
+      return this.itemDetail[this.itemNum - 1] || {}
+    },
+    // 2. 展开 mapState 结果（与自定义属性合并）
+    ...mapState(['itemNum', 'level', 'itemDetail', 'timer'])
+  }
+}
+```
 
 `mapState` **必须放在计算属性（`computed`）中**
 
