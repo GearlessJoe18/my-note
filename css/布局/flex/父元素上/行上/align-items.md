@@ -1,4 +1,4 @@
-属性定义交叉轴在
+属性定义子项在交叉轴上是如何对齐的
 
 `.box {`
   `align-items: flex-start | flex-end | center | baseline | stretch;`
