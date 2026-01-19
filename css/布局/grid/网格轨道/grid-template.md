@@ -1,3 +1,3 @@
 grid-template-rows
 
-grid-template-colum
+grid-template-colums
