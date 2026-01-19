@@ -1,4 +1,4 @@
-属性定义项目在交叉轴上如何对齐
+属性定义交叉轴在
 
 `.box {`
   `align-items: flex-start | flex-end | center | baseline | stretch;`
