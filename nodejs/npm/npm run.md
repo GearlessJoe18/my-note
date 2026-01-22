@@ -1,1 +1,1 @@
-找package.json里面的script
+找package.json里面的scripts，然后对应其依赖（找node_modul）
