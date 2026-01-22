@@ -6,4 +6,4 @@ meta: {
 
     },
 
-可通过
+可通过$route.meta读取
