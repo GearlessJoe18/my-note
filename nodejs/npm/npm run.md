@@ -1,0 +1,1 @@
+找package.json里面的script
