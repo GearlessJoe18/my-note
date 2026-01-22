@@ -1,0 +1,1 @@
+npm run 启动了vite，vite读取项目目录下的vite config js 然后根据这个配置文件来执行项目代码的构建
