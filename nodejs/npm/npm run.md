@@ -1,1 +1,1 @@
-找package.json里面的scripts，然后对应其依赖（找node_modules）
+找package.json里面的scripts，然后对应其依赖（找node_modules），执行对应的js文件
