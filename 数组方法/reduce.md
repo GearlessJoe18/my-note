@@ -1,1 +1,1 @@
-array.reduce((累加值，当前item，（可选）))
+array.reduce((累加值，当前item，（可选）当前item的index，))
