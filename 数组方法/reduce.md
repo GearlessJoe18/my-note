@@ -1,1 +1,1 @@
-array.reduce(())
+array.reduce((累加值，当前item，（可选）))
