@@ -1,3 +1,4 @@
+字符串转数组
 `const str = 'apple,banana,orange'`
 
 `// 按逗号分割`
