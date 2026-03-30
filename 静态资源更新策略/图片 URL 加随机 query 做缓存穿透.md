@@ -3,4 +3,4 @@
 
 场景：更新了 `public` 里的 SVG/图片，但线上或本地仍看到旧图；或需要每次进登录页都拉最新资源；
 
-做法：`src="\`/path/logo.svg?` + Math.random()"`，用随机 query 让 URL 唯一。
+做法：用随机 query 让 URL 唯一。
