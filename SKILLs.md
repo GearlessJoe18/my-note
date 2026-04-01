@@ -1,1 +1,1 @@
-用open skills
+用OpenSkills
