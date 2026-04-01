@@ -1,1 +1,1 @@
-用OpenSkills
+用OpenSkills来安装使用
