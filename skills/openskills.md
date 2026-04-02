@@ -2,3 +2,7 @@
 一般是.claude/skills
 
 openskills sync 在项目中启用
+
+openskills manage 管理全局skills
+
+openskills 
