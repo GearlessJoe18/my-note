@@ -1,0 +1,1 @@
+openskills sync 在项目中启用
