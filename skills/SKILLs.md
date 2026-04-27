@@ -1,0 +1,1 @@
+用OpenSkills来安装使用
