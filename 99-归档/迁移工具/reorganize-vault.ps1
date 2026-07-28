@@ -125,7 +125,14 @@ if (-not $WhatIf) {
             $relativePath = $_.Groups[1].Value.Trim()
             if ($relativePath -match '^(https?:|data:)') { return }
             $sourceImage = Join-Path $note.DirectoryName ($relativePath -replace '/', '\\')
-            if (-not (Test-Path -LiteralPath $sourceImage -PathType Leaf)) { return }
+            if (-not (Test-Path -LiteralPath $sourceImage -PathType Leaf)) {
+                $fileName = Split-Path -Leaf $relativePath
+                $candidates = Get-ChildItem -Path $vaultRoot -Recurse -File -Filter $fileName | Where-Object {
+                    $_.FullName -notmatch '\\(90-资源与附件|99-归档|\.git|\.obsidian|\.claudian|\.trash|docs)\\'
+                }
+                if ($candidates.Count -ne 1) { return }
+                $sourceImage = $candidates[0].FullName
+            }
             if ([IO.Path]::GetExtension($sourceImage).ToLowerInvariant() -ne '.png') { return }
             $targetDirectory = Join-Path $vaultRoot '90-资源与附件/图片'
             New-Item -ItemType Directory -Force -Path $targetDirectory | Out-Null
@@ -149,5 +156,6 @@ if (-not $WhatIf) {
 }
 
 $global:LASTEXITCODE = 0
+
 
 
