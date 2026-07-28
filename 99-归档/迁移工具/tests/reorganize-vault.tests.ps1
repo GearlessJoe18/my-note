@@ -7,3 +7,8 @@ if (-not (Test-Path -LiteralPath $scriptPath)) {
 if ($LASTEXITCODE -ne 0) {
     throw "Expected -WhatIf migration run to exit 0; got $LASTEXITCODE"
 }
+
+$implementation = Get-Content -LiteralPath $scriptPath -Raw
+if ($implementation -notmatch 'if \(\$null -eq \$content\) \{ continue \}') {
+    throw 'Expected migration script to skip empty Markdown before regex matching.'
+}
