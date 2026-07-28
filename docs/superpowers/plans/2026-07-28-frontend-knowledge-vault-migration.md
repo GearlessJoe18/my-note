@@ -57,7 +57,8 @@
 
 ```powershell
 $files = Get-ChildItem -Recurse -File | Where-Object { $_.FullName -notmatch '\\(\.git|\.obsidian|\.claudian|\.trash|docs)\\' }
-$baselinePath = Join-Path $env:TEMP 'my-note-migration-baseline.txt'`n"files=$($files.Count); bytes=$(($files | Measure-Object Length -Sum).Sum)" | Set-Content $baselinePath -Encoding utf8
+$baselinePath = Join-Path $env:TEMP 'my-note-migration-baseline.txt'
+"files=$($files.Count); bytes=$(($files | Measure-Object Length -Sum).Sum)" | Set-Content $baselinePath -Encoding utf8
 git status --short
 ```
 
