@@ -9,6 +9,7 @@ $allFiles = Get-ChildItem -Path $vaultRoot -Recurse -File | Where-Object {
 $broken = [System.Collections.Generic.List[string]]::new()
 foreach ($note in $notes) {
     $content = Get-Content -LiteralPath $note.FullName -Raw
+    if ($null -eq $content) { continue }
     foreach ($match in [regex]::Matches($content, '!?\[\[([^\]]+)\]\]')) {
         $target = ($match.Groups[1].Value -split '[#|]', 2)[0].Trim().Replace('/', '\\')
         if ([string]::IsNullOrWhiteSpace($target)) { continue }
@@ -32,3 +33,4 @@ if ($broken.Count -gt 0) {
 }
 Write-Output 'Vault link check passed.'
 exit 0
+
