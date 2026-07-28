@@ -118,6 +118,7 @@ if (-not $WhatIf) {
     }
     foreach ($note in $markdown) {
         $content = Get-Content -LiteralPath $note.FullName -Raw
+        if ($null -eq $content) { continue }
         $changed = $false
         [regex]::Matches($content, '!\[[^\]]*\]\(([^)]+)\)') | ForEach-Object {
             $embed = $_.Value
@@ -148,4 +149,5 @@ if (-not $WhatIf) {
 }
 
 $global:LASTEXITCODE = 0
+
 
