@@ -16,6 +16,7 @@
 - 移动或重命名后，Wiki 链接与 Markdown 图片嵌入必须可解析。
 - 根目录只保留 vault 配置、`.gitignore` 与 `docs/`；已分类笔记不可留在根目录。
 - React 只在学习路线中预留入口，不新建 React 空目录。
+- 用户已明确授权在当前 `main` 分支的真实 vault 中执行；不得创建或切换到 worktree。
 
 ---
 
@@ -37,14 +38,14 @@
 | `80-个人项目/` | 毕业设计笔记。 |
 | `90-资源与附件/图片/` | 迁移后的 PNG 附件。 |
 | `99-归档/` | 空白笔记、未命名 canvas 和不可确认归属的旧资源。 |
-| `scripts/reorganize-vault.ps1` | 一次性、可预演的目录/文件移动与 Markdown 图片链接重写工具。 |
-| `scripts/verify-vault-links.ps1` | 报告 Markdown 中失效 Wiki 链接、嵌入链接与文件系统残留的校验工具。 |
+| `99-归档/迁移工具/reorganize-vault.ps1` | 一次性、可预演的目录/文件移动与 Markdown 图片链接重写工具。 |
+| `99-归档/迁移工具/verify-vault-links.ps1` | 报告 Markdown 中失效 Wiki 链接、嵌入链接与文件系统残留的校验工具。 |
 
 ### Task 1: 创建可预演的迁移与校验工具
 
 **Files:**
-- Create: `scripts/reorganize-vault.ps1`
-- Create: `scripts/verify-vault-links.ps1`
+- Create: `99-归档/迁移工具/reorganize-vault.ps1`
+- Create: `99-归档/迁移工具/verify-vault-links.ps1`
 - Modify: none
 - Test: 在 `-WhatIf` 下不产生文件系统变化；在真实运行后校验退出码为 `0`。
 
@@ -56,13 +57,13 @@
 
 ```powershell
 $files = Get-ChildItem -Recurse -File | Where-Object { $_.FullName -notmatch '\\(\.git|\.obsidian|\.claudian|\.trash|docs)\\' }
-"files=$($files.Count); bytes=$(($files | Measure-Object Length -Sum).Sum)" | Set-Content .claudian/migration-baseline.txt -Encoding utf8
+$baselinePath = Join-Path $env:TEMP 'my-note-migration-baseline.txt'`n"files=$($files.Count); bytes=$(($files | Measure-Object Length -Sum).Sum)" | Set-Content $baselinePath -Encoding utf8
 git status --short
 ```
 
-Expected: 基线文件记录文件数和总字节数；现有 `.claudian/`、`.obsidian/` 未提交变更仍只显示为未暂存变更。
+Expected: 系统临时目录中的基线文件记录文件数和总字节数；现有 `.claudian/`、`.obsidian/` 未提交变更仍只显示为未暂存变更。
 
-- [ ] **Step 2: 实现 `scripts/reorganize-vault.ps1` 的目录移动清单**
+- [ ] **Step 2: 实现 `99-归档/迁移工具/reorganize-vault.ps1` 的目录移动清单**
 
 脚本须以 `Move-Item -LiteralPath ... -Destination ... -WhatIf:$WhatIfPreference` 执行以下重命名或移动；先用 `New-Item -ItemType Directory -Force` 创建每个目标父目录。每个源路径在移动前必须 `Test-Path`，缺失即 `throw`，以避免半完成迁移。
 
@@ -78,13 +79,14 @@ $moves = @(
   @{ From='防抖与节流'; To='10-计算机与Web基础/JavaScript/异步与性能/防抖与节流' },
   @{ From='每日笔记（前端）'; To='60-学习记录/每日笔记' },
   @{ From='面试'; To='70-职业发展/面试' },
-  @{ From='毕设论文'; To='80-个人项目/毕业设计-服装风格识别' }
+  @{ From='毕设论文'; To='80-个人项目/毕业设计-服装风格识别' },
+  @{ From='picsum'; To='90-资源与附件/外部资料/Picsum图片服务' }
 )
 ```
 
 - [ ] **Step 3: 实现文件级移动清单与命名**
 
-脚本须以同一方法移动：`对象方法`、`数组方法`、`字符串方法` 到 `10-计算机与Web基础/JavaScript/内置对象与方法/`；`ES6` 和 `剩余参数...arg.md` 到 `10-计算机与Web基础/JavaScript/语法与函数/`；`数据结构map.md`、`数据结构set.md` 到 `10-计算机与Web基础/JavaScript/内置对象与方法/`；`重学前端/number/符号位 指数位 尾数位.md` 到 `10-计算机与Web基础/JavaScript/数值与二进制/IEEE-754-符号位指数位尾数位.md`；`前端网页显示元素的术语` 到 `10-计算机与Web基础/HTML与浏览器/界面元素术语/`；`http/请求` 和 `http/响应` 到 `10-计算机与Web基础/网络与HTTP/HTTP报文/`；`http/http模块.md` 到 `30-Node与服务端/Node.js/HTTP模块.md`；`http/express.md` 与 `http/路由` 到 `30-Node与服务端/Express与中间件/`；`nodejs/npm`、`nodejs/path`、`nodejs/process全局对象.md`、`nodejs/require`、`nodejs/bodyparser/未命名.md` 到对应 Node 子目录，后者重命名为 `body-parser-中间件.md`；`vite`、`webpack`、`git使用`、`nvm命令`、`静态资源更新策略` 到 `40-工程化与工具链/` 对应子目录；根目录的快捷键与 Codex 笔记到 `40-工程化与工具链/开发工具/`；根目录 `钥无忧的登录.md` 到 `50-工作实践/项目复盘/钥无忧-登录流程.md`；`skills` 到 `40-工程化与工具链/开发工具/AI与技能/`。
+脚本须以同一方法移动：`对象方法`、`数组方法`、`字符串方法` 到 `10-计算机与Web基础/JavaScript/内置对象与方法/`；`ES6` 和 `剩余参数...arg.md` 到 `10-计算机与Web基础/JavaScript/语法与函数/`；`数据结构map.md`、`数据结构set.md` 到 `10-计算机与Web基础/JavaScript/内置对象与方法/`；`重学前端/number/符号位 指数位 尾数位.md` 到 `10-计算机与Web基础/JavaScript/数值与二进制/IEEE-754-符号位指数位尾数位.md`；`前端网页显示元素的术语` 到 `10-计算机与Web基础/HTML与浏览器/界面元素术语/`；`http/请求` 和 `http/响应` 到 `10-计算机与Web基础/网络与HTTP/HTTP报文/`；`http/http模块.md` 到 `30-Node与服务端/Node.js/HTTP模块.md`；`http/express.md` 与 `http/路由` 到 `30-Node与服务端/Express与中间件/`；`nodejs/npm`、`nodejs/path`、`nodejs/process全局对象.md`、`nodejs/require`、`nodejs/bodyparser/未命名.md` 到对应 Node 子目录，后者重命名为 `body-parser-中间件.md`；`vite`、`webpack`、`git使用`、`nvm命令`、`静态资源更新策略` 到 `40-工程化与工具链/` 对应子目录；根目录的快捷键与 Codex 笔记到 `40-工程化与工具链/开发工具/`；根目录 `钥无忧的登录.md` 到 `50-工作实践/项目复盘/钥无忧-登录流程.md`；`skills` 到 `40-工程化与工具链/开发工具/AI与技能/`；根目录 `笔记注意事项！！！！.md` 重命名并移动到 `01-导航/笔记写作规范.md`。
 
 - [ ] **Step 4: 实现图片迁移和嵌入重写**
 
@@ -96,14 +98,14 @@ $moves = @(
 
 - [ ] **Step 6: 预演脚本**
 
-Run: `./scripts/reorganize-vault.ps1 -WhatIf`
+Run: `./99-归档/迁移工具/reorganize-vault.ps1 -WhatIf`
 
 Expected: 输出每个目标移动操作；`Get-ChildItem -Directory` 仍显示旧目录，且 `git status --short` 没有知识笔记移动记录。
 
 - [ ] **Step 7: Commit**
 
 ```powershell
-git add scripts/reorganize-vault.ps1 scripts/verify-vault-links.ps1
+git add 99-归档/迁移工具/reorganize-vault.ps1 99-归档/迁移工具/verify-vault-links.ps1
 git commit -m 'chore: add vault migration tools'
 ```
 
@@ -130,7 +132,7 @@ git commit -m 'chore: add vault migration tools'
 
 - [ ] **Step 2: 写入前端知识地图**
 
-内容必须以 `# 前端知识地图` 开头，包含“学习状态：未开始 / 学习中 / 可工作使用 / 需复习”图例，并链接：`[[10-计算机与Web基础/JavaScript]]`、`[[10-计算机与Web基础/CSS]]`、`[[10-计算机与Web基础/网络与HTTP]]`、`[[20-Vue生态/Vue 2]]`、`[[30-Node与服务端/Node.js]]`、`[[40-工程化与工具链/Vite]]`、`[[50-工作实践/项目复盘/钥无忧-登录流程]]`、`[[70-职业发展/面试]]`。
+内容必须以 `# 前端知识地图` 开头，包含“学习状态：未开始 / 学习中 / 可工作使用 / 需复习”图例，并链接：`[[10-计算机与Web基础/JavaScript/异步与性能/Promise/promise]]`、`[[10-计算机与Web基础/CSS/布局/flex/flex]]`、`[[10-计算机与Web基础/网络与HTTP/HTTP报文/请求/请求报文]]`、`[[20-Vue生态/Vue 2/创建项目]]`、`[[30-Node与服务端/Node.js/process全局对象]]`、`[[40-工程化与工具链/Vite/vite是什么]]`、`[[50-工作实践/项目复盘/钥无忧-登录流程]]`、`[[70-职业发展/面试/es6]]`。
 
 - [ ] **Step 3: 写入当前学习路线**
 
@@ -161,7 +163,7 @@ git commit -m 'feat: add vault navigation maps'
 
 - [ ] **Step 1: 执行真实迁移**
 
-Run: `./scripts/reorganize-vault.ps1`
+Run: `./99-归档/迁移工具/reorganize-vault.ps1`
 
 Expected: `css`、`vue2`、`nodejs`、`http`、`vite`、`webpack` 等源目录被清空或删除；所有目标文件存在。
 
@@ -172,7 +174,7 @@ Expected: `css`、`vue2`、`nodejs`、`http`、`vite`、`webpack` 等源目录�
 - [ ] **Step 3: 验收文件数量与正文保留**
 
 ```powershell
-$baseline = Get-Content .claudian/migration-baseline.txt
+$baseline = Get-Content (Join-Path $env:TEMP 'my-note-migration-baseline.txt')
 $files = Get-ChildItem -Recurse -File | Where-Object { $_.FullName -notmatch '\\(\.git|\.obsidian|\.claudian|\.trash|docs|scripts)\\' }
 "files=$($files.Count); bytes=$(($files | Measure-Object Length -Sum).Sum)"
 $baseline
@@ -207,7 +209,7 @@ git commit -m 'refactor: organize technical knowledge notes'
 
 - [ ] **Step 2: 为工作复盘添加最少关联**
 
-在 `钥无忧-登录流程.md` 的开头添加一级标题 `# 钥无忧-登录流程`；在文末添加 `## 关联知识`，并链接 `[[20-Vue生态/Vue 2/Vue Router]]`、`[[20-Vue生态/Vue 2/Vuex与Pinia]]`、`[[10-计算机与Web基础/网络与HTTP/HTTP报文]]`。原有流程正文不改写。
+在 `钥无忧-登录流程.md` 的开头添加一级标题 `# 钥无忧-登录流程`；在文末添加 `## 关联知识`，并链接 `[[20-Vue生态/Vue 2/Vue Router/生成路由实例]]`、`[[20-Vue生态/Vue 2/VueX/mapState]]`、`[[10-计算机与Web基础/网络与HTTP/HTTP报文/请求/请求报文]]`。原有流程正文不改写。
 
 - [ ] **Step 3: 归档空白和未命名文件**
 
@@ -224,8 +226,8 @@ git commit -m 'refactor: organize practice and learning records'
 
 **Files:**
 - Modify: `01-导航/*.md`（仅在校验发现路径不一致时修正）
-- Modify: `scripts/verify-vault-links.ps1`（仅在真实链接形式未覆盖时修正）
-- Test: `scripts/verify-vault-links.ps1` 退出码为 `0`；根目录无遗留知识笔记。
+- Modify: `99-归档/迁移工具/verify-vault-links.ps1`（仅在真实链接形式未覆盖时修正）
+- Test: `99-归档/迁移工具/verify-vault-links.ps1` 退出码为 `0`；根目录无遗留知识笔记。
 
 **Interfaces:**
 - Consumes: Tasks 1–4 的最终 vault 结构。
@@ -233,7 +235,7 @@ git commit -m 'refactor: organize practice and learning records'
 
 - [ ] **Step 1: 执行链接与嵌入校验**
 
-Run: `./scripts/verify-vault-links.ps1`
+Run: `./99-归档/迁移工具/verify-vault-links.ps1`
 
 Expected: 输出 `Vault link check passed.` 并返回 `0`。若有失败，修正实际路径或链接文本后重复运行至通过。
 
@@ -251,7 +253,7 @@ Expected: 根目录不返回 Markdown；每个旧目录均返回 `False`。
 
 Run: `git status --short; git diff --check HEAD`
 
-Expected: 只有知识库目录、`scripts/` 和文档计划相关的提交；既有 `.obsidian/`、`.claudian/` 用户改动仍未被暂存或提交。
+Expected: 只有知识库目录、`99-归档/迁移工具/` 和文档计划相关的提交；既有 `.obsidian/`、`.claudian/` 用户改动仍未被暂存或提交。
 
 - [ ] **Step 4: 最终 Commit**
 
@@ -265,3 +267,4 @@ git commit -m 'chore: verify organized knowledge vault'
 - **Spec coverage:** 目录、迁移映射、命名、三类笔记、三份导航页、链接修复、附件处理、归档和验收均分别由 Tasks 1–5 覆盖。
 - **Placeholder scan:** 计划没有未决条目或泛化实现说明；每项移动、命名和验证均给出具体路径或规则。
 - **Consistency:** 所有导航、迁移和验证任务使用相同的 `10/20/30/40/50/60/70/80/90/99` 目录命名；校验脚本的输入范围与迁移脚本的排除范围一致。
+
