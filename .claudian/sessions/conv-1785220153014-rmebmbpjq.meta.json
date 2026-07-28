@@ -1,0 +1,27 @@
+{
+  "id": "conv-1785220153014-rmebmbpjq",
+  "providerId": "codex",
+  "title": "我是一名前端开发，刚刚从学生身份毕业，也才进入行业，要学习很多很杂的内容，请你帮我整理我的笔记。根据...",
+  "titleGenerationStatus": "failed",
+  "createdAt": 1785220153056,
+  "updatedAt": 1785221102828,
+  "lastResponseAt": 1785221102828,
+  "sessionId": "019fa769-cc01-7790-ba30-157e03d4d162",
+  "selectedModel": "gpt-5.6-terra",
+  "providerState": {
+    "threadId": "019fa769-cc01-7790-ba30-157e03d4d162",
+    "sessionFilePath": "C:\\Users\\1\\.codex\\sessions\\2026\\07\\28\\rollout-2026-07-28T14-29-21-019fa769-cc01-7790-ba30-157e03d4d162.jsonl",
+    "transcriptRootPath": "C:\\Users\\1\\.codex\\sessions",
+    "workspaceDependencyToolVersion": 1
+  },
+  "usage": {
+    "inputTokens": 30083,
+    "cacheCreationInputTokens": 0,
+    "cacheReadInputTokens": 25344,
+    "contextWindow": 258400,
+    "contextWindowIsAuthoritative": true,
+    "contextTokens": 30083,
+    "percentage": 12,
+    "model": "gpt-5.6-terra"
+  }
+}
