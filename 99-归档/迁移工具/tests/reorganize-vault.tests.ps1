@@ -22,3 +22,7 @@ $verifyImplementation = Get-Content -LiteralPath $verifyPath -Raw
 if ($verifyImplementation -notmatch 'if \(\$null -eq \$content\) \{ continue \}') {
     throw 'Expected link verifier to skip empty Markdown before regex matching.'
 }
+$verifyImplementation = Get-Content -LiteralPath $verifyPath -Raw
+if ($verifyImplementation -notmatch '@\(\s*\(Join-Path \$vaultRoot \$target\),') {
+    throw 'Expected link verifier to construct each exact candidate separately.'
+}
