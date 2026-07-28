@@ -15,7 +15,7 @@ foreach ($note in $notes) {
         if ([string]::IsNullOrWhiteSpace($target)) { continue }
         $hasExtension = [IO.Path]::HasExtension($target)
         $exactCandidates = @(
-            Join-Path $vaultRoot $target,
+            (Join-Path $vaultRoot $target)
             $(if ($hasExtension) { $null } else { Join-Path $vaultRoot "$target.md" })
         ) | Where-Object { $_ }
         $resolved = $exactCandidates | Where-Object { Test-Path -LiteralPath $_ -PathType Leaf } | Select-Object -First 1
@@ -33,4 +33,5 @@ if ($broken.Count -gt 0) {
 }
 Write-Output 'Vault link check passed.'
 exit 0
+
 

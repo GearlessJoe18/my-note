@@ -26,3 +26,4 @@ $verifyImplementation = Get-Content -LiteralPath $verifyPath -Raw
 if ($verifyImplementation -notmatch '@\(\s*\(Join-Path \$vaultRoot \$target\),') {
     throw 'Expected link verifier to construct each exact candidate separately.'
 }
+
