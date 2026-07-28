@@ -18,7 +18,21 @@ function Invoke-VaultMove {
         throw "Missing expected source: $From"
     }
     if (Test-Path -LiteralPath $destination) {
-        throw "Destination already exists: $To"
+        $sourceItem = Get-Item -LiteralPath $source
+        $destinationItem = Get-Item -LiteralPath $destination
+        $destinationChildren = Get-ChildItem -LiteralPath $destination -Force
+        if (-not $sourceItem.PSIsContainer -or -not $destinationItem.PSIsContainer -or $destinationChildren.Count -ne 0) {
+            throw "Destination already exists and cannot be merged safely: $To"
+        }
+        if ($WhatIf) {
+            Write-Output "What if: merge $From contents -> $To"
+            return
+        }
+        Get-ChildItem -LiteralPath $source -Force | ForEach-Object {
+            Move-Item -LiteralPath $_.FullName -Destination (Join-Path $destination $_.Name)
+        }
+        Remove-Item -LiteralPath $source
+        return
     }
     if ($WhatIf) {
         Write-Output "What if: move $From -> $To"
@@ -134,3 +148,4 @@ if (-not $WhatIf) {
 }
 
 $global:LASTEXITCODE = 0
+
