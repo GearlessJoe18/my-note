@@ -325,11 +325,11 @@
   "settingsProvider": "claude",
   "savedProviderModel": {
     "claude": "haiku",
-    "codex": "gpt-5.5"
+    "codex": "gpt-5.6-terra"
   },
   "savedProviderEffort": {
     "claude": "high",
-    "codex": "high"
+    "codex": "medium"
   },
   "savedProviderServiceTier": {
     "codex": "default"
