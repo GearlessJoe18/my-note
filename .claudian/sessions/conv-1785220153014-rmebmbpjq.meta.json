@@ -4,8 +4,8 @@
   "title": "我是一名前端开发，刚刚从学生身份毕业，也才进入行业，要学习很多很杂的内容，请你帮我整理我的笔记。根据...",
   "titleGenerationStatus": "failed",
   "createdAt": 1785220153056,
-  "updatedAt": 1785912980199,
-  "lastResponseAt": 1785912980199,
+  "updatedAt": 1786011532471,
+  "lastResponseAt": 1786011532471,
   "sessionId": "019fa769-cc01-7790-ba30-157e03d4d162",
   "selectedModel": "gpt-5.6-terra",
   "providerState": {
@@ -15,13 +15,13 @@
     "workspaceDependencyToolVersion": 1
   },
   "usage": {
-    "inputTokens": 200880,
+    "inputTokens": 204759,
     "cacheCreationInputTokens": 0,
-    "cacheReadInputTokens": 199424,
+    "cacheReadInputTokens": 203520,
     "contextWindow": 258400,
     "contextWindowIsAuthoritative": true,
-    "contextTokens": 200880,
-    "percentage": 78,
+    "contextTokens": 204759,
+    "percentage": 79,
     "model": "gpt-5.6-terra"
   }
 }
