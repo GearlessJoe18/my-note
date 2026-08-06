@@ -33,51 +33,7 @@
 
 ### 1.3 RealEye NDR 产品架构
 
-进一步拆解了 RealEye 网络监控系统的核心架构资料。
-
-目前理解的核心模块：
-
-| 模块 | 作用 |
-|---|---|
-| `realeye2.0` | 基于 Suricata 的核心检测引擎，负责协议解析、规则匹配、输出告警事件 |
-| `ecapture` | 基于 eBPF 的增强采集能力，支持 TLS/SSL、MySQL/PostgreSQL、Bash/Zsh 等场景 |
-| `apt / aptgo` | 威胁情报、恶意域名、DGA、恶意文件、沙箱联动 |
-| `net_c / scen` | 场景化分析，如 SQL 注入、挖矿、异常服务、恶意邮件、UEBA |
-| `busgo` | 文件/事件总线，按 topic 分发日志给下游消费者 |
-| `assetopt / assetgo` | 资产发现和资产画像 |
-| `suboss` | 告警后处理、规则匹配、白名单过滤、资产标记 |
-| `syslogsender` | 告警格式化和外发到 Syslog/Kafka/HTTP |
-
-已经明确的系统定位：
-
-```text
-RealEye 不是单纯的传统旁路 NDR。
-它以 NDR 为核心，叠加了 eBPF 增强采集、情报检测、资产上下文、告警治理和外发能力。
-但当前资料不足以证明它具备完整 EDR 能力。
-```
-
-### 1.4 RealEye 的核心能力边界
-
-已经整理出文档：
-
-```text
-learning-records/0017-realeye-ndr-capability-boundary.md
-```
-
-当前明确的能力边界：
-
-| 能力 | 能证明什么 | 不能证明什么 |
-|---|---|---|
-| 原始流量检测 | 网络通信真实发生 | 主机已被入侵 |
-| HTTP 检测 | 请求中存在攻击特征 | 攻击一定成功 |
-| DNS 检测 | 主机查询过某域名 | 主机一定连上 C2 |
-| 文件提取 | 网络上传输过文件 | 文件已落地或执行 |
-| Suricata 规则 | 满足检测条件 | 漏洞利用成功 |
-| ecapture TLS 解密 | 某些 HTTPS 明文可见 | 所有 HTTPS 都可解密 |
-| ecapture 数据库协议 | 可看到部分 SQL 语句和执行结果 | SQL 注入一定成功 |
-| ecapture Bash/Zsh | 可看到部分 SSH 远程命令 | 一定是攻击者行为 |
-| 资产标记 | 源/目的是否属于已知资产 | 攻击是否成功 |
-| syslog 外发 | 告警摘要被发送 | 原始证据完整可信 |
+进一步了解 RealEye 网络系统的核心架构。
 
 ### 1.5 告警处置防御措施
 
