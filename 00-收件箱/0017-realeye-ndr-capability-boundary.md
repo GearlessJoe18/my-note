@@ -95,15 +95,9 @@ NDR 为核心
 
 ### 3.2 MySQL/PostgreSQL 协议解析
 
-资料描述：
 
 ```text
 捕获数据库协议的 SQL 语句和执行结果，用于 SQL 注入分析。
-```
-
-它的意思不是 ecapture 主动执行 SQL，而是：
-
-```text
 Web 应用或客户端已经向数据库发送 SQL
 → ecapture 捕获这段数据库通信
 → 解析出 SQL 语句和数据库响应
