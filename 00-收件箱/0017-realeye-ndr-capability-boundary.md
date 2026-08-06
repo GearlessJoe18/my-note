@@ -213,49 +213,10 @@ assetopt / assetgo / suboss
 suboss 可以降低误报、补资产上下文，但不能把“命中规则”变成“攻击成功”。
 ```
 
-## 6. syslogsender 外发能力
 
-相关模块：
+## 6. 最重要的能力边界
 
-```text
-syslogsender
-```
-
-链路：
-
-```text
-suboss 写 MySQL alert 表
-→ syslogsender 读取未外发告警
-→ 模板格式化
-→ TCP/UDP Syslog / Kafka / HTTP 外发
-```
-
-常见外发字段：
-
-- `srcip`
-- `srcport`
-- `destip`
-- `destport`
-- `proto`
-- `appproto`
-- `alerttype`
-- `alertname`
-- `alertlevel`
-- `alerttime`
-- `msg`
-- `pcapurl`
-- `req_packet`
-
-边界：
-
-```text
-syslog 是外发摘要，不是最原始证据。
-研判时要尽量回溯到 eve.json、payload、pcap、req_packet 或原始协议日志。
-```
-
-## 7. 最重要的能力边界
-
-### 7.1 这套系统能证明
+### 6.1 这套系统能证明
 
 - 某段网络通信发生过。
 - 某个协议字段或 payload 被观察到。
